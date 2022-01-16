@@ -31,8 +31,8 @@ function runGame(gameType) {
     document.getElementById("answer-box").focus();
 
     // creates two random numbers between 1 and 25
-    let num1 = Math.floor(Math.random() * 25 + 1);
-    let num2 = Math.floor(Math.random() * 25 + 1);
+    let num1 = Math.floor(Math.random() * 25) + 1;
+    let num2 = Math.floor(Math.random() * 25 )+ 1;
 
     if (gameType === "addition") {
         displayAdditionQuestion(num1, num2);
@@ -41,13 +41,13 @@ function runGame(gameType) {
     } else if (gameType === "subtract") {
         displaySubtractQuestion(num1, num2);
     } else {
-        alert(`Unkown game type: ${gameType}`);
-        throw `Unkown game type: ${gameType}. Aborting!`;
+        alert(`Unknown game type: ${gameType}`);
+        throw `Unknown game type: ${gameType}. Aborting!`;
     }
 }
 
 /**
- * Checks the answer agaist the first element in
+ * Checks the answer against the first element in
  * the returned calculateCorrectAnswer array
  */
 function checkAnswer() {
@@ -108,8 +108,8 @@ function displayAdditionQuestion(operand1, operand2) {
 }
 
 function displaySubtractQuestion(operand1, operand2) {
-    document.getElementById("operand1").textContent = operand1 < operand2 ? operand1 : operand2;
-    document.getElementById("operand2").textContent = operand1 < operand2 ? operand2 : operand1;
+    document.getElementById("operand1").textContent = operand1 > operand2 ? operand1 : operand2;
+    document.getElementById("operand2").textContent = operand1 > operand2 ? operand2 : operand1;
     document.getElementById("operator").textContent = "-";
 }
 
